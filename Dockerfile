@@ -1,4 +1,4 @@
-FROM postgres:12-alpine
+FROM docker.io/library/postgres:12-alpine
 
 #RUN mkdir /ssl
 

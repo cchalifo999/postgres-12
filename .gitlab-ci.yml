@@ -1,0 +1,26 @@
+image: docker:20.10.16
+
+
+stages:
+  - build
+  
+
+services:
+  - name: registry.hub.docker.com/library/docker:20.10.16-dind
+    alias: docker
+
+
+
+before_script:
+  - docker info
+  - echo $opppp | docker login -u $CI_REGISTRY_USER --password-stdin $CI_REGISTRY/$CI_REGISTRY_USER 
+
+
+
+Build-postgress_ssl:
+  stage: build
+  
+  script:
+ 
+  - docker build -t $CI_REGISTRY/root/postgres15:latest .
+  - docker push $CI_REGISTRY/root/postgres15:latest 

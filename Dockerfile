@@ -1,4 +1,4 @@
-FROM postgres:15-alpine
+FROM postgres:12-alpine
 
 #RUN mkdir /ssl
 
